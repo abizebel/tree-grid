@@ -4,7 +4,7 @@ A lightweight treegrid with react js
 All tree functionalities with flat and composition data
 
 
-<img src="http://s2.picofile.com/file/8369207234/tree.jpg" width="48">
+<img src="http://s2.picofile.com/file/8369207234/tree.jpg" width="500">
 
 
 
