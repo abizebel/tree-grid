@@ -22,7 +22,7 @@ class Cell extends PureComponent {
   
 
 
-  getValueByField(node, field) {
+ getValueByField(node, field) {
     if (field === undefined) {  console.error('in cell component , in getValueByfield ===> field is wrong'); debugger; return false; }
     if (Array.isArray(field)) { field = field[node.level]; }
     if (field === undefined) {  console.error('in cell component , in getValueByfield ===> field is wrong'); debugger; return false; }
@@ -33,27 +33,6 @@ class Cell extends PureComponent {
       value = value[field[i]];
     }
     return value;
-  }
-
-  /**
-   * @param {Object} node
-   * @param {String} field
-   * @description get value of cell
-   */
-  getValue (node, field) {
-    if(field.indexOf(',') != -1) {
-      var fields = field.split(',');
-      for(var i=0; i<fields.length; i++) {
-        var value = this.getValueByField(node, fields[i].trim())
-        if (value != undefined ) {
-          return value
-        }
-      }
-    }
-    else {
-      return this.getValueByField(node, field)
-    }
-
   }
 
   /**
@@ -92,7 +71,7 @@ class Cell extends PureComponent {
   renderChildCell (node, col){
     const { rtl, Tree, data} = this.context;
     const { showAddOption} = this.state;
-    let value = this.getValue(node, col.field);
+    let value = this.getValueByField(node, col.field);
     let hasChild = (Tree.hasChild(node, data)) ? true : false;
     
     return (
@@ -178,7 +157,7 @@ class Cell extends PureComponent {
   getCellValue (node, col, isColumnIndex){
     const {columns, treeColumnIndex} = this.context;
     
-    let val = this.getValue(node, col.field);
+    let val = this.getValueByField(node, col.field);
     console.log('ppp',val)
     return isColumnIndex ? this.renderChildCell(node, col) : <span style={{padding:'0 8px'}}>{val}</span>
   }
@@ -192,7 +171,7 @@ class Cell extends PureComponent {
   renderEditCell (node, col, isColumnIndex){
     const {columns, treeColumnIndex} = this.context;
     const {editValue} = this.state;
-    let val = this.getValue(node, col.field);
+    let val = this.getValueByField(node, col.field);
 
     return (
       <input 
