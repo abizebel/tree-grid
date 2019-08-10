@@ -3,10 +3,6 @@ import { render } from 'react-dom';
 import Grid from './components/Grid/Grid';
 import flatData from './components/Grid/flatData'
 import compositeData from './components/Grid/compositeData'
-import json2 from './components/Grid/json2';
-
-import FlatTree from './components/Grid/Tree/Flat'
-import CompositionTree from './components/Grid/Tree/Composition'
 
 
 
@@ -24,19 +20,8 @@ class App extends Component {
     
     return (
 
-      // <Grid 
-      //   rtl ={true}
-      //   dataType = 'composition'
-      //   treeColumnIndex={1} 
-      //   mapping={{children : 'ObjectiveKPIRelations' , id :'Id', parentId : 'ParentId'}}
-      //   data={json2.Value.Items} 
-      //   columns ={[
-      //     {text : 'کد', field:'Code', width:90, align:'left'},
-      //     {text : 'عنوان هدف', field:'Title, KPI.Title', width:200,align:'right'},
-      //     {text : 'وضعیت', field:'StatusId', width:90, align:'right'},
-      //   ]}
-      // />
- <Grid 
+
+      <Grid 
         dataType = 'composition'
         treeColumnIndex={1} 
         edit={true}
